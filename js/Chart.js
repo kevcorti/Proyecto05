@@ -98,7 +98,6 @@ const dataset2 = {
 
  }
 
-
 (
   function () {
     let meteo = localStorage.getItem('meteo');
