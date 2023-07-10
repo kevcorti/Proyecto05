@@ -1,24 +1,24 @@
 let load = (data) => { 
 
-  let timezone = data["timezone"]
-  let timezone_ab = data["timezone_abbreviation"]
-  let latitude = data["latitude"]
-  let longitude = data["longitude"]
-  let elevation = data["elevation"]
+  let timezone = data["timezone"];
+  let timezone_ab = data["timezone_abbreviation"];
+  let latitude = data["latitude"];
+  let longitude = data["longitude"];
+  let elevation = data["elevation"];
 
-  let timeHTML = document.getElementById("time")
-  let timeabHTML = document.getElementById("timeAbb")
-  let latHTML = document.getElementById("lat")
-  let longHTML = document.getElementById("long")
-  let elevationHTML = document.getElementById("eleVation")
+  let timeHTML = document.getElementById("time");
+  let timeabHTML = document.getElementById("timeAbb");
+  let latHTML = document.getElementById("lat");
+  let longHTML = document.getElementById("long");
+  let elevationHTML = document.getElementById("eleVation");
 
-  timeHTML.textContent = timezone
-  timeabHTML.textContent = timezone_ab
-  latHTML.textContent = latitude
-  longHTML.textContent = longitude
-  elevationHTML.textContent = elevation
+  timeHTML.textContent = timezone;
+  timeabHTML.textContent = timezone_ab;
+  latHTML.textContent = latitude;
+  longHTML.textContent = longitude;
+  elevationHTML.textContent = elevation;
 
-  plot(data)
+  plot(data);
 
   
 
@@ -96,8 +96,8 @@ const dataset2 = {
       }
     },
   };
-  const chart = new Chart(ctx, config)
-  const chart2 = new Chart(ctx2, config2)
+  const chart = new Chart(ctx, config);
+  const chart2 = new Chart(ctx2, config2);
 
  }
 
@@ -111,9 +111,9 @@ const dataset2 = {
       fetch(URL)
       .then(response => response.json())
       .then(data => {
-          load(data)
+          load(data);
           /* GUARDAR DATA EN MEMORIA */
-          localStorage.setItem("meteo", JSON.stringify(data))
+          localStorage.setItem("meteo", JSON.stringify(data));
   
       })
       .catch(console.error);
@@ -121,7 +121,7 @@ const dataset2 = {
     } else {
   
         /* CARGAR DATA EN MEMORIA */
-        load(JSON.parse(meteo))
+        load(JSON.parse(meteo));
   
     }
 
