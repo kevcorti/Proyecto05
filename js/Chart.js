@@ -2,18 +2,21 @@ let load = (data) => {
 
   let timezone = data["timezone"]
   let timezone_ab = data["timezone_abbreviation"]
-  let latiJson = data["latitude"]
-  let longiJson = data["longitude"]
+  let latitude = data["latitude"]
+  let longitude = data["longitude"]
+  let elevation = data["elevation"]
 
-  let timezoneHTML = document.getElementById("timez")
-  let timezone_abHTML = document.getElementById("timeza")
-  let latiHTML = document.getElementById("latiti")
-  let longiHTML = document.getElementById("longit")
+  let timeHTML = document.getElementById("time")
+  let timeabHTML = document.getElementById("timeAbb")
+  let latHTML = document.getElementById("lat")
+  let longHTML = document.getElementById("long")
+  let elevationHTML = document.getElementById("eleVation")
 
-  timezoneHTML.textContent = timezone
-  timezone_abHTML.textContent = timezone_ab
-  latiHTML.textContent= latiJson
-  longiHTML.textContent= longiJson
+  timeHTML.textContent = timezone
+  timeabHTML.textContent = timezone_ab
+  latHTML.textContent = latitude
+  longHTML.textContent = longitude
+  elevationHTML.textContent = elevation
 
   plot(data)
 
