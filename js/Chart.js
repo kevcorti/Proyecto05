@@ -20,17 +20,13 @@ let load = (data) => {
 
   plot(data);
 
-  
-
-  //console.log(data);
-
 }
 
 let loadInocar = () => {
   let URL_proxy = 'https://cors-anywhere.herokuapp.com/';
   let URL = URL_proxy + 'https://www.inocar.mil.ec/mareas/consultan.php';
   fetch(URL)
-     	.then(response => response.text())
+     	.then(response => response.text()
         .then(data => {
            const parser = new DOMParser();
            const xml = parser.parseFromString(data, "text/html");
@@ -41,7 +37,7 @@ let loadInocar = () => {
 
           
 
-        })
+        }))
     .catch(console.error);
     
     
