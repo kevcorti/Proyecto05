@@ -18,31 +18,35 @@ let load = (data) => {
   longHTML.textContent = longitude;
   elevationHTML.textContent = elevation;
 
-  plot(data);
-
+  plot(data);  
 }
+
 
 let loadInocar = () => {
   let URL_proxy = 'https://cors-anywhere.herokuapp.com/';
   let URL = URL_proxy + 'https://www.inocar.mil.ec/mareas/consultan.php';
   fetch(URL)
-     	.then(response => response.text()
-        .then(data => {
-           const parser = new DOMParser();
-           const xml = parser.parseFromString(data, "text/html");
-           console.log(xml);
-           let contenedorMareas = xml.getElementsByTagName('div')[0];
-           let contenedorHTML = document.getElementById('chart3');
-           contenedorHTML.innerHTML = contenedorMareas.innerHTML;
-
-          
-
-        }))
-    .catch(console.error);
-    
-    
-
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not OK');
+      }
+      return response.text();
+    })
+    .then(data => {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(data, "text/xml");
+      console.log(xml);
+      let contenedorMareas = xml.getElementsByTagName('div')[0];
+      let contenedorHTML = document.getElementById('chart3');
+      if (contenedorHTML) {
+        contenedorHTML.innerHTML = contenedorMareas.innerHTML;
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
 }
+
 
 
 
