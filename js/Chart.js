@@ -41,10 +41,10 @@ let loadInocar = () => {
       if (contenedorHTML) {
         contenedorHTML.innerHTML = contenedorMareas.innerHTML;
       }
-    });
+    })
     .catch(error => {
       console.error('Error:', error);
-    });
+    })
 }
 
 
