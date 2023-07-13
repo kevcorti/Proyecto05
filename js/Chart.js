@@ -37,7 +37,7 @@ let loadInocar = () => {
       const xml = parser.parseFromString(data, "text/xml");
       console.log(xml);
       let contenedorMareas = xml.getElementsByTagName('div')[0];
-      let contenedorHTML = document.getElementById('chart3');
+      let contenedorHTML = document.getElementById('Chart3');
       if (contenedorHTML) {
         contenedorHTML.innerHTML = contenedorMareas.innerHTML;
       }
