@@ -31,7 +31,7 @@ let loadInocar = () => {
         throw new Error('Network response was not OK');
       }
       return response.text();
-    })
+    });    
     .then(data => {
       const parser = new DOMParser();
       const xml = parser.parseFromString(data, "text/xml");
@@ -41,7 +41,7 @@ let loadInocar = () => {
       if (contenedorHTML) {
         contenedorHTML.innerHTML = contenedorMareas.innerHTML;
       }
-    })
+    });
     .catch(error => {
       console.error('Error:', error);
     });
